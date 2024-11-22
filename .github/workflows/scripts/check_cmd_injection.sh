@@ -31,14 +31,14 @@ do
     #    echo $line;
     #    for (( i=0; i<${#check_list[@]}; i++)); do
     #        if [[ $line == *"${check_list[$i]}"* ]]; then
-    #            echo "Found Dangerous Command: $line in $file, Please Check"
+    #            echo "Found Dangerous Command: ${check_list[$i]} in $file, Please Check"
     #            status="failed"
     #        fi;
     #    done;
     #done
     for (( i=0; i<${#check_list[@]}; i++)); do
         if [[ $(cat diff_file | grep -c "${check_list[$i]}") != 0 ]]; then
-            echo "Found Dangerous Command: $line in $file, Please Check"
+            echo "Found Dangerous Command: ${check_list[$i]} in $file, Please Check"
             status="failed"
         fi;
     done;
