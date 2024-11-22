@@ -42,7 +42,7 @@ jobs:
             echo "github head ref is ${{ github.head_ref }}"
             echo "github base ref is ${{ github.base_ref }}"
             echo "github merge ref is refs/pull/${{ github.event.number }}/merge"
-            git fetch origin main
+            git fetch
             git branch
             git diff FETCH_HEAD --name-status
             cd ${{ github.workspace }} && bash -x .github/workflows/scripts/check_cmd_injection.sh
