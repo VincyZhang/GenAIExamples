@@ -26,7 +26,7 @@ do
         exit 0
     fi
     # get added command
-    git diff main ${file} | grep "^\+.*" | grep -v "^+++" | sed "s|\+||g" > ${WORKSPACE}/diff_file
+    git diff FETCH_HEAD ${file} | grep "^\+.*" | grep -v "^+++" | sed "s|\+||g" > ${WORKSPACE}/diff_file
     #cat diff_file | while read line; do
     #    echo $line;
     #    for (( i=0; i<${#check_list[@]}; i++)); do
