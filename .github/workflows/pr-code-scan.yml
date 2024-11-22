@@ -41,6 +41,7 @@ jobs:
             echo "github ref name is ${{ github.ref_name }}"
             echo "github head ref is ${{ github.head_ref }}"
             echo "github base ref is ${{ github.base_ref }}"
+            echo "github merge ref is refs/pull/${{ github.event.number }}/merge"
             git fetch origin main
             git branch
             git diff FETCH_HEAD --name-status
