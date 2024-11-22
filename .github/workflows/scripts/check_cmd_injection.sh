@@ -13,7 +13,7 @@ exclude_check_path="${WORKSPACE}/.github/workflows/scripts"
 
 # get change file lists (exclude delete files)
 git fetch origin main
-change_files=$(git diff main --name-status -- :^$exclude_check_path | grep -v "D" | awk '{print $2}')
+change_files=$(git diff FETCH_HEAD --name-status -- :^$exclude_check_path | grep -v "D" | awk '{print $2}')
 
 status="success"
 for file in ${change_files};
