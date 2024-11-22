@@ -5,6 +5,7 @@
 set -e
 cd ${WORKSPACE}
 [[ -f ${WORKSPACE}/diff_file ]] && rm -f ${WORKSPACE}/diff_file
+source .github/workflows/scripts/change_color
 # docker control/rm/scp/rsync/git cmd
 check_list=("docker stop" "docker rm" "docker kill" "sudo rm" "git .* -f")
 
@@ -38,7 +39,7 @@ do
     #done
     for (( i=0; i<${#check_list[@]}; i++)); do
         if [[ $(cat diff_file | grep -c "${check_list[$i]}") != 0 ]]; then
-            echo "Found Dangerous Command: ${check_list[$i]} in $file, Please Check"
+            $BOLD_RED && echo "Found Dangerous Command: ${check_list[$i]} in $file, Please Check"
             status="failed"
         fi;
     done;
