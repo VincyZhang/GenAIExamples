@@ -9,7 +9,7 @@ cd ${WORKSPACE}
 check_list=("docker stop" "docker rm" "docker kill" "sudo rm" "git .* -f")
 
 # exclude path
-exclude_check_path="${WORKSPACE}/.github/workflows/scripts"
+exclude_check_path=".github/workflows/scripts"
 
 # get change file lists (exclude delete files)
 git fetch origin main
